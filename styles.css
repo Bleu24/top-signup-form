@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'Norse-Bold';
+    src: url('fonts/Norse-Bold.woff2') format('woff2'),
+        url('fonts/Norse-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Norse';
+    src: url('fonts/Norse.woff2') format('woff2'),
+        url('fonts/Norse.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* CSS Reset/Normalize */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* CSS Custom Properties */
+:root {
+    /* accents */
+    --primary-color: #fff;
+    --invalid-color: red;
+    --focus-color: blue;
+
+    /* fonts */
+    --header-font: 'Norse-Bold', sans-serif;
+
+    /* text */
+    --text-small: 0.875rem;
+    --text-large: 2rem;
+    --text-xs: 0.75rem;
+    --text-base: 1rem;
+    --text-md: 1.125rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 1.75rem;
+    --text-3xl: 2.25rem;
+
+    /* spacing */
+    --space-0: 1rem;
+    --space-1: 1.5rem;
+    --space-2: 5rem;
+    --space-3: 7.5rem;
+    --space-4: 15rem;
+    --space-05: 0.5rem;
+    --space-075: 0.75rem;
+    --space-1-25: 1.25rem;
+    --space-2-0: 2rem;
+    --space-2-5: 2.5rem;
+    --space-3-0: 3rem;
+    --space-3-5: 3.5rem;
+    --space-4-0: 4rem;
+    --space-6-0: 6rem;
+    --space-10: 10rem;
+    --space-12: 12rem;
+
+
+    /* widths */
+    --width-0: 15rem;
+    --width-1: 30rem;
+    --width-2: 60rem;
+    --width-3: 90rem;
+    --width-4: 120rem;
+    --width-5: 160rem;
+
+    /* img */
+    --hero-bg: url('assets/hero-bg.jpg');
+}
+
+.landing-page {
+    display: flex;
+    gap: var(--space-6-0);
+}
+
+.img-container {
+    position:relative;
+    background: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width:100%;
+    flex: 1 0 33.33%;
+}
+
+.img-header {
+    position: absolute;
+    top: var(--space-3);
+    height: 8rem;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.534);
+    padding: 0.875rem;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-1-25);
+}
+
+.img-header__logo {
+    height: 100%;
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-svg {
+    width: 75%; /* Adjusts to the width of the parent */
+    height: auto; /* Maintains aspect ratio */
+    fill: white;
+}
+
+.img-header__title {
+    text-align: center;
+    font-family: var(--header-font);
+    font-size: 5vw;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-075);
+    margin-top: var(--space-3);
+    margin-left: var(--space-0); 
+    margin-right: var(--space-4);  
+}
+
+.disclaimer {
+    font-size: var(--text-large);
+    font-weight: bolder;
+    margin-bottom: var(--space-1);
+    background-color: #333;
+    color: var(--primary-color);
+    padding: var(--text-3xl);
+    border-radius: var(--text-2xl);
+    font-family: var(--header-font);
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-05);
+}
+
+.signup-form__field {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.signup-form__row {
+    display: flex;
+    gap: var(--space-6-0);
+    font-family: var(--header-font);
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    width: var(--width-0);
+    height: 2.5rem;
+    padding: 0.3rem;
+    border-radius: var(--text-small);
+    font-size: var(--text-small);
+    border: 2px solid #000;
+}
+
+
+.signup-form__row:last-of-type input:invalid {
+    border: 2px solid var(--invalid-color); 
+}
+
+input:focus {   
+    border: 2px solid var(--focus-color);
+    outline: none;
+}
+
+.signup-form__row:last-of-type  {
+    margin-bottom: var(--space-2-5);
+}
+
+.signup-form h3:first-child {
+    margin-bottom: var(--space-1);
+    font-family: var(--header-font);
+    font-size: var(--text-3xl);
+    color: #000;
+}
+
+.signup-form__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 10rem;
+    padding: var(--text-small);
+    border-color: rgba(255, 255, 255, 0);
+    border-radius: var(--text-small);
+    font-family: var(--header-font);
+    background-color: rgb(25, 129, 25);
+    color: white;
+}
+
+a {
+    color: rgb(25, 129, 25);   
+    font-weight: bolder;
+}
